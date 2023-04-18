@@ -1,0 +1,44 @@
+/**Clothes Store
+T-shirts (4)
+Crop Tops (6)
+Skirts (12)
+Jeans (8)
+Sweaters (2)
+Sneakers (5)
+Blouses (3)
+Slacks (4)
+Earrings (18)
+Necklaces (5)
+Rings (4)
+Hair clips (7)
+**/
+
+CREATE TABLE clothes_store (id INTEGER PRIMARY KEY, item TEXT, type TEXT, quantity INTEGER, price INTEGER, rating INTEGER, brand TEXT);
+
+INSERT INTO clothes_store VALUES (1, "t-shirts", "tops", 4, 15.99, 5, "lulu");
+INSERT INTO clothes_store VALUES (2, "crop tops", "tops", 6, 13.99, 4, "lily's");
+INSERT INTO clothes_store VALUES (3, "skirts", "bottoms", 12, 16.00, 4.3, "lily's");
+INSERT INTO clothes_store VALUES (4, "jeans", "bottoms", 8, 34.00, 3.5, "dobb");
+INSERT INTO clothes_store VALUES (5, "sweaters", "tops", 2, 26.49, 4.2, "stod");
+INSERT INTO clothes_store VALUES (6, "sneakers", "shoes", 5, 45.25, 4.6, "keys");
+INSERT INTO clothes_store VALUEs (7, "blouses", "tops", 3, 28.99, 4, "lily's");
+INSERT INTO clothes_store VALUES (8, "slacks", "bottoms", 4, 21.39, 3.2, "dobb");
+INSERT INTO clothes_store VALUES (9, "earrings", "accessory", 18, 12.49, 4.5, "lulu");
+INSERT INTO clothes_store VALUES (10, "necklaces", "accesory", 5, 21.99, 4, "dobb");
+INSERT INTO clothes_store VALUES (11, "rings", "accesory", 4, 10.50, 5, "katiez");
+INSERT INTO clothes_store VALUES (12, "hair clips", "accesory", 7, 5.99, 4.7, "katiez");
+
+--display the database ordered by price. 
+SELECT * FROM clothes_store
+ORDER BY price; 
+
+--what is the avg price of bottoms? 
+SELECT AVG(price), AS "avg price"
+FROM clothes_store
+where type = "bottoms";
+
+--what are the top 5 highest rated items, including brands?
+SELECT item, price, rating, brand
+FROM clothes_store
+ORDER BY rating DESC
+LIMIT 5;
