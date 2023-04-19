@@ -1,0 +1,76 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY,
+fullname TEXT,
+age INTEGER,
+type TEXT);
+
+INSERT INTO famous_people VALUES (1, "Taylor Swift", 32, "Singer");
+INSERT INTO famous_people VALUES (2, "Jenna Ortega", 20, "Actress");
+INSERT INTO famous_people VALUES (3, "Keke Palmer", 29, "Actress");
+INSERT INTO famous_people VALUES (4, "Sydney Sweeney", 25, "Actress");
+INSERT INTO famous_people VALUES (5, "Florence Pugh", 27, "Actress");
+INSERT INTO famous_people VALUES (6, "Anya Taylor-Joy", 26, "Actress");
+INSERT INTO famous_people VALUES (7, "Selena Gomez", 30, "Actress/Singer");
+INSERT INTO famous_people VALUES (8, "Bad Bunny", 29, "Rapper");
+INSERT INTO famous_people VALUES (9, "Lorde", 26, "Singer");
+INSERT INTO famous_people VALUES (10, "LaLISA", 26, "Rapper");
+INSERT INTO famous_people VALUES (11, "Jennie", 27, "Singer");
+INSERT INTO famous_people VALUES (12, "Megan Thee Stallion", 28, "Rapper");
+INSERT INTO famous_people VALUES (13, "SZA", 33, "Singer");
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY, 
+fullname TEXT, 
+birthplace TEXT, 
+song TEXT);
+
+INSERT INTO singers VALUES (1, "Taylor Swift", "West Redding, PA", "Karma");
+INSERT INTO singers VALUES (2, "Taylor Swift", "West Redding, PA", "Wildest Dreams");
+INSERT INTO singers VALUES (3, "Taylor Swift", "West Redding, PA", "All Too Well");
+INSERT INTO singers VALUES (4, "Lorde", "New Zealand", "Supercut");
+INSERT INTO singers VALUES (5, "Lorde", "New Zealand", "Solar Power");
+INSERT INTO singers VALUES (6, "Selena Gomez", "Grand Prairie, TX", "Ice Cream");
+INSERT INTO singers VALUES (7, "Selena Gomez", "Grand Prairie, TX", "Love You Like A Love Song");
+INSERT INTO singers VALUES (8, "Jennie Kim", "South Korea", "SOLO");
+INSERT INTO singers VALUES (9, "SZA", "St. Louis, MO", "Kill Bill");
+INSERT INTO singers VALUES (10, "SZA", "St. Louis, MO", "Low");
+
+CREATE TABLE actors (id INTEGER PRIMARY KEY, 
+name TEXT, 
+type TEXT, 
+title TEXT, 
+year INTEGER);
+
+INSERT INTO actors VALUES (1, "Jenna Ortega", "TV", "Wednesday", 2022);
+INSERT INTO actors VALUEs (2, "Jenna Ortega", "Movie", "Scream", 2022);
+INSERT INTO actors VALUES (3, "Keke Palmer", "Movie", "Nope", 2022);
+INSERT INTO actors VALUES (4, "Keke Palmer", "TV", "SNL", 2022);
+INSERT INTO actors VALUES (5, "Sydney Sweeney", "TV", "Euphoria", 2022);
+INSERT INTO actors VALUES (6, "Florence Pugh", "Movie", "Little Women", 2019);
+INSERT INTO actors VALUEs (7, "Florence Pugh", "Movie", "The Wonder", 2022);
+INSERT INTO actors VALUEs (8, "Anya Taylor-Joy", "TV", "The Queen's Gambit", 2020);
+INSERT INTO actors VALUEs (9, "Anya Taylor-joy", "Movie", "The VVITCH", 2015);
+INSERT INTO actors VALUES (10, "Selena Gomez", "TV", "Selena+Chef", 2019);
+INSERT INTO actors VALUES (11, "Selena Gomez", "TV", "Only Murders In the Building", 2020);
+INSERT INTO actors VALUES (12, "Jennie Kim", "TV", "The Idol", 2023);
+
+CREATE TABLE rappers (id INTEGER PRIMARY KEY, 
+name TEXT, 
+song TEXT, 
+released INTEGER);
+
+INSERT INTO rappers VALUES (1, "Bad Bunny", "La Jumpa", 2022);
+INSERT INTO rappers VALUES (2, "LaLISA", "Money", 2021);
+INSERT INTO rappers VALUES (3, "LaLISA", "LaLISA", 2021);
+INSERT INTO rappers VALUES (4, "Bad Bunny", "Vete", 2020);
+INSERT INTO rappers VALUES (5, "Megan Thee Stallion", "Savage", 2020);
+INSERT INTO rappers VALUES (6, "Megan Thee Stallion", "Hot Girl Summer", 2019);
+
+--List famous people under the age of 26.
+SELECT *
+FROM famous_people
+WHERE age < 26;
+
+-- Join the "rappers" and "singers" table.
+SELECT name, rappers.song, released, singers.song, fullname AS musical_artists
+FROM rappers
+INNER JOIN singers
+WHERE name = fullname;
