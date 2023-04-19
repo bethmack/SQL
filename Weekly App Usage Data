@@ -1,0 +1,39 @@
+CREATE TABLE weekly_usage (id INTEGER PRIMARY KEY, name TEXT, category TEXT, hours_online INTEGER, appstore_rating INTEGER);
+
+INSERT INTO weekly_usage VALUES (1, "Twitter", "Social", 10, 4.6);
+INSERT INTO weekly_usage VALUES (2, "Pinterest", "Social", 5, 4.8);
+INSERT INTO weekly_usage VALUES (3, "Etsy", "Shopping", 2, 4.9);
+INSERT INTO weekly_usage VALUES (4, "Tetris", "Game", 6, 4.5);
+INSERT INTO weekly_usage VALUES (5, "Snack Bar", "Game", 5, 4.9);
+INSERT INTO weekly_usage VALUES (6, "Apple Podcast", "Entertainment", 12, 4.9);
+INSERT INTO weekly_usage VALUES (7, "Spotify", "Music", 7, 4.8);
+INSERT INTO weekly_usage VALUES (8, "TikTok", "Social", 10, 4.8);
+INSERT INTO weekly_usage VALUES (9, "Amazon", "Shopping", 3, 4.8);
+INSERT INTO weekly_usage VALUES (10, "Bank of America", "Finance", 2, 4.8);
+INSERT INTO weekly_usage VALUES (11, "Sofi", "Finance", 4, 4.8);
+INSERT INTO weekly_usage VALUES (12, "Venmo", "Finance", 1, 4.9);
+INSERT INTO weekly_usage VALUES (13, "Instagram", "Social", 2, 4.7);
+INSERT INTO weekly_usage VALUES (14, "Duolingo", "Education", 6, 4.7);
+INSERT INTO weekly_usage VALUES (15, "DataCamp", "Education", 3, 4.8);
+INSERT INTO weekly_usage VALUES (16, "Mimo", "Education", 2, 4.9);
+INSERT INTO weekly_usage VALUES (17, "Shopify", "Shopping", 6, 4.8);
+INSERT INTO weekly_usage VALUES (18, "Starbucks", "Food", 1, 4.8);
+INSERT INTO weekly_usage VALUES (19, "DoorDash", "Food", 2, 4.8);
+INSERT INTO weekly_usage VALUES (20, "Google Maps", "Travel", 1, 4.7);
+INSERT INTO weekly_usage VALUES (21, "Airbnb", "Travel", 2, 4.8);
+INSERT INTO weekly_usage VALUES (22, "Fandago", "Shopping", 1, 4.9);
+
+--To find the average usage
+SELECT AVG(hours_online)
+FROM weekly_usage;
+
+--Show apps with a rating higher than 4.7, organized by category.
+SELECT * FROM weekly_usage
+WHERE appstore_rating > 4.7
+ORDER BY category;
+
+--Which app has the highest usage and rating?
+SELECT appstore_rating, name, hours_online
+FROM weekly_usage 
+ORDER BY hours_online DESC
+LIMIT 1;
