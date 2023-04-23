@@ -1,0 +1,29 @@
+
+--In this SQL code, the following queries are related to a database containing netflix shows and film information:
+
+#1. To Join the two tables titles "netflix_people" and "netflix_titles_info", respectively:
+SELECT people.show_id, 
+people.director, 
+titles.title, 
+titles.type
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON people.show_id = titles.show_id;
+
+#2. How many tv shows are there in the database?
+SELECT count(*) 
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type='TV Show';
+
+#3. List all the movies and tv shows in descending alphabetical order. 
+SELECT title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title desc;
+
+#4. Who was the Director for the movie The Starling? 
+SELECT director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+LEFT JOIN  "CharlotteChaze/BreakIntoTech"."netflix_people" people
+ON titles.show_id=people.show_id
+WHERE titles.title='The Starling'
+
