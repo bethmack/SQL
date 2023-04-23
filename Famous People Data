@@ -69,8 +69,15 @@ SELECT *
 FROM famous_people
 WHERE age < 26;
 
--- Join the "rappers" and "singers" table.
-SELECT name, rappers.song, released, singers.song, fullname AS musical_artists
+-- Join the "rappers" and "singers" table, excluding release year (As the singers table does not have a release year column).
+SELECT name, song 
 FROM rappers
-JOIN singers
-ON name = fullname;
+UNION
+SELECT name, song 
+FROM singers;
+
+--What movie did Keke Palmer star in? What year?
+SELECT title, year
+FROM actors
+WHERE name = "Keke Palmer"
+AND type = "Movie"
