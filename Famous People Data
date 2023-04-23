@@ -18,7 +18,7 @@ INSERT INTO famous_people VALUES (12, "Megan Thee Stallion", 28, "Rapper");
 INSERT INTO famous_people VALUES (13, "SZA", 33, "Singer");
 
 CREATE TABLE singers (id INTEGER PRIMARY KEY, 
-fullname TEXT, 
+name TEXT, 
 birthplace TEXT, 
 song TEXT);
 
@@ -72,5 +72,5 @@ WHERE age < 26;
 -- Join the "rappers" and "singers" table.
 SELECT name, rappers.song, released, singers.song, fullname AS musical_artists
 FROM rappers
-INNER JOIN singers
-WHERE name = fullname;
+JOIN singers
+ON name = fullname;
