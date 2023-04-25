@@ -51,7 +51,8 @@ SELECT
 SELECT COUNT(DISTINCT cust.acctnum), 
     AVG(quantity*price)
   FROM BIT_DB.FebSales Feb
-   LEFT JOIN BIT_DB.customers cust
+  
+   LEFT JOIN BIT_DB.customers AS cust
     ON FEB.orderid=cust.order_id
     WHERE Feb.Quantity>2
       AND length(orderid) = 6 
