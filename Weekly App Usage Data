@@ -24,7 +24,7 @@ INSERT INTO weekly_usage VALUES (21, "Airbnb", "Travel", 2, 4.8);
 INSERT INTO weekly_usage VALUES (22, "Fandago", "Shopping", 1, 4.9);
 
 --To find the average usage
-SELECT AVG(hours_online)
+SELECT AVG(hours_online) AS avg_hours
 FROM weekly_usage;
 
 --Show apps with a rating higher than 4.7, organized by category.
@@ -37,3 +37,9 @@ SELECT appstore_rating, name, hours_online
 FROM weekly_usage 
 ORDER BY hours_online DESC
 LIMIT 1;
+
+--What is the average hours online for all shopping apps?
+SELECT AVG(hours_online) AS avg_hours
+FROM weekly_usage
+GROUP BY category
+HAVING category = 'Shopping';
