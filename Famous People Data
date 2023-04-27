@@ -80,4 +80,10 @@ FROM singers;
 SELECT title, year
 FROM actors
 WHERE name = "Keke Palmer"
-AND type = "Movie"
+AND type = "Movie";
+
+--Show singers who have also acted and list their songs and projects:
+SELECT singers.name, singers.song, actors.title
+FROM singers
+INNER JOIN actors
+ON singers.name = actors.name;
