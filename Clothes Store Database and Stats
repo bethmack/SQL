@@ -35,7 +35,7 @@ ORDER BY price;
 --what is the avg price of bottoms? 
 SELECT AVG(price), AS "avg price"
 FROM clothes_store
-where type = "bottoms";
+WHERE type = "bottoms";
 
 --what are the top 5 highest rated items, including brands?
 SELECT item, price, rating, brand
