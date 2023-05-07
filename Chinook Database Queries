@@ -1,0 +1,46 @@
+-- Chinook represents a digital media store; this database contains data about artists, albums, playlists, invoices, customer data and so on. 
+These are the analytics I performed on the datasets.
+
+-- List of all non-USA customers:
+SELECT customerid, firstname, lastname, country 
+FROM chinook.customers 
+WHERE country <> "USA";
+
+-- Show only customers from Brazil:
+SELECT * 
+FROM chinook.customers
+WHERE country = "Brazil";
+
+-- Invoices of customers from Brazil:
+SELECT c.firstname, c.lastname, i.invoiceid, i.billingcountry, i.invoicedate
+FROM chinook.invoices AS i
+JOIN chinook.customers AS c
+ON i.customerid = c.customerid
+WHERE country = "Brazil";
+
+-- Show employees who are sales agents:
+SELECT firstname, lastname, employeeid, title
+FROM chinook.employees
+WHERE title LIKE "% Agent";
+
+(Official title is Sales Support Agent)
+
+-- Unique list of billing countries from Invoices:
+SELECT DISTINCT BillingCountry 
+FROM chinook.invoices;
+
+-- Invoices associated with each sales agent:
+SELECT e.firstname, e.lastname, i.invoiceid
+FROM chinook.employees AS e
+JOIN chinook.customers AS c
+ON c.supportrepid = e.employeeid
+JOIN chinook.invoices AS i
+ON i.customerid = c.customerid;
+
+--
+SELECT 
+FROM chinook.employees AS e
+JOIN chinook.customers AS c
+ON
+JOIN chinook.invoices AS i
+ON
