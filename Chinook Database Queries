@@ -37,10 +37,36 @@ ON c.supportrepid = e.employeeid
 JOIN chinook.invoices AS i
 ON i.customerid = c.customerid;
 
---
-SELECT 
+-- Invoices for all employees and customers:
+SELECT e.lastname, e.firstname, c.firstname, c.lastname, c.country, i.total
 FROM chinook.employees AS e
 JOIN chinook.customers AS c
-ON
+ON c.supportrepid = e.employeeid
 JOIN chinook.invoices AS i
-ON
+ON i.customerid = c.customerid;
+
+-- Quantity of invoices in 2009:
+SELECT COUNT(*) AS quantity
+FROM chinook.invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+-- Total sales in 2009;
+SELECT SUM(total)
+FROM chinook.invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+-- Purchased track and invoice line ID:
+SELECT t.name, i.invoicelineid
+FROM chinook.invoice_items AS i
+JOIN chinook.tracks AS t
+ON i.trackid = t.trackid;
+
+-- Track name, artist name with each invoice line:
+SELECT a.name AS Artist, t.name AS Track, i.invoicelineid
+FROM chinook.invoice_items AS i
+LEFT JOIN chinook.tracks AS t
+ON i.Trackid = t.Trackid
+INNER JOIN chinook.albums AS al
+ON al.albumid = t.albumid
+LEFT JOIN chinook.artists AS a
+ON a.artistid = al.artistid;
