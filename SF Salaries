@@ -1,0 +1,39 @@
+--The following SQL queries are from the following dataset: https://www.kaggle.com/datasets/kaggle/sf-salaries
+
+-- Base pay of Firefighters:
+SELECT JobTitle, BasePay
+FROM Salaries
+WHERE Jobtitle ="Firefighter";
+
+-- Number of Firefighters in dataset:
+SELECT COUNT(Firefighter)
+FROM Salaries;
+
+-- Quality of Benefits for Fulltime and Parttime Firefighters:
+SELECT Benefits, Status, EmployeeName
+FROM Salaries
+WHERE Jobtitle = "Firefighter"
+ORDER BY Benefits DESC
+LIMIT 10;
+
+-- List all Police Captains:
+SELECT JobTitle, OvertimePay, OtherPay, BasePay, EmployeeName
+FROM Salaries
+WHERE JobTitle LIKE "%Captain III%"
+ORDER BY EmployeeName;
+
+-- What job has the highest Total Pay?
+SELECT EmployeeName, Jobtitle, MAX(TotalPay)
+FROM Salaries;
+
+-- Highest paid nurse in dataset:
+SELECT EmployeeName, Jobtitle, MAX(TotalPay)
+FROM Salaries
+WHERE JobTitle LIKE "%Nurse%";
+
+-- Salaries greater than 100,000 by Employee Name:
+SELECT EmployeeName, JobTitle, TotalPay
+FROM Salaries
+WHERE TotalPay > 100000
+ORDER BY EmployeeName
+LIMIT 20;
