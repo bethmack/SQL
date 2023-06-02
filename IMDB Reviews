@@ -1,0 +1,44 @@
+This selection shows a series of queries on a IMDB database that logs movies and several of their attritbutes. 
+
+-- List movie titles by their popularity:
+SELECT name, gender, directors.uid, popularity, title
+FROM directors
+JOIN movies 
+ON directors.uid = movies.uid
+ORDER BY popularity DESC;
+
+-- Movies titles grouped by release_date:
+SELECT title, name, release_date, vote_average, vote_count
+FROM movies
+JOIN directors
+ON movies.uid = directors.uid
+GROUP BY release_date
+ORDER BY name;
+
+-- Movies released between 1994-1998 that have an average of 6.5 or higher, ordered by release date:
+SELECT title, name as director, release_date, vote_average, vote_count, revenue, budget
+FROM movies as m
+JOIN directors as d
+ON m.uid = d.uid
+WHERE release_date BETWEEN 1994 AND 1998
+AND vote_average >= 6.5
+ORDER BY release_date DESC;
+
+-- Top 15 movies with at least 100 vote counts:
+SELECT title, vote_count, vote_average, release_date
+FROM movies
+WHERE vote_count > 100 AND release_date > 1998
+GROUP BY release_date
+ORDER BY vote_average DESC
+LIMIT 15;
+
+-- Most popular movie:
+SELECT name, title, vote_count, vote_average, MAX(popularity)
+FROM movies
+JOIN directors
+ON movies.uid = directors.uid;
+
+-- Movie with the smallest budget and higest popularity:
+SELECT title, MIN(budget) as budget, vote_count, vote_average
+FROM movies
+WHERE (SELECT MAX(popularity) FROM movies);
