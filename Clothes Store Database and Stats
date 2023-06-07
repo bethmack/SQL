@@ -13,7 +13,14 @@ Rings (4)
 Hair clips (7)
 **/
 
-CREATE TABLE clothes_store (id INTEGER PRIMARY KEY, item TEXT, type TEXT, quantity INTEGER, price INTEGER, rating INTEGER, brand TEXT);
+CREATE TABLE clothes_store 
+(id INTEGER PRIMARY KEY, 
+item TEXT, 
+type TEXT, 
+quantity INTEGER, 
+price INTEGER, 
+rating INTEGER, 
+brand TEXT);
 
 INSERT INTO clothes_store VALUES (1, "t-shirts", "tops", 4, 15.99, 5, "lulu");
 INSERT INTO clothes_store VALUES (2, "crop tops", "tops", 6, 13.99, 4, "lily's");
@@ -24,9 +31,66 @@ INSERT INTO clothes_store VALUES (6, "sneakers", "shoes", 5, 45.25, 4.6, "keys")
 INSERT INTO clothes_store VALUEs (7, "blouses", "tops", 3, 28.99, 4, "lily's");
 INSERT INTO clothes_store VALUES (8, "slacks", "bottoms", 4, 21.39, 3.2, "dobb");
 INSERT INTO clothes_store VALUES (9, "earrings", "accessory", 18, 12.49, 4.5, "lulu");
-INSERT INTO clothes_store VALUES (10, "necklaces", "accesory", 5, 21.99, 4, "dobb");
-INSERT INTO clothes_store VALUES (11, "rings", "accesory", 4, 10.50, 5, "katiez");
-INSERT INTO clothes_store VALUES (12, "hair clips", "accesory", 7, 5.99, 4.7, "katiez");
+INSERT INTO clothes_store VALUES (10, "necklaces", "accessory", 5, 21.99, 4, "dobb");
+INSERT INTO clothes_store VALUES (11, "rings", "accessory", 4, 10.50, 5, "katiez");
+INSERT INTO clothes_store VALUES (12, "hair clips", "accessory", 7, 5.99, 4.7, "katiez");
+INSERT INTO clothes_store VALUES (13, "bracelets", "accessory", 3, 14.50, 3.4, "lulu");
+INSERT INTO clothes_store VALUES (14, "t-shirts", "tops", 3, 17.75, 4.2, "dobb");
+INSERT INTO clothes_store VALUES (15, "shorts", "bottoms", 5, 28.00, 4.1, "lily's);
+INSERT INTO clothes_store VALUES (16, "sweaters", "tops", 3, 25.99, 4.6, "keys");
+INSERT INTO clothes_store VALUES (17, "crop tops", "tops", 3, 12.50, 4.3, "stod");
+INSERT INTO clothes_store VALUES (18, "blouses", "tops", 2, 31.00, 4.1, "stod");
+INSERT INTO clothes_store VALUES (19, "slacks", "bottoms", 2, 25.99, 3.8, "lily's");
+INSERT INTO clothes_store VALUES (20, "maxi dress", "dresses", 3, 34.99, 4.8, "lulu");
+INSERT INTO clothes_store VALUES (21, "mini dress", "dresses", 3, 31.99, 4.5, "lulu");
+INSERT INTO clothes_store VALUES (22, "skirts", "bottoms", 4, 22.45, 4.2, "momo clue");
+INSERT INTO clothes_store VALUES (23, "jeans", "bottoms", 3, 34.99, 3.7, "lily's");
+INSERT INTO clothes_store VALUES (24, "heels", "shoes", 4, 45.65, 4.6, "momo clue");
+INSERT INTO clothes_store VALUES (25, "flats", "shoes", 3, 25.50, 4.2, "katiez");
+INSERT INTO clothes_store VALUES (26, "shorts", "bottoms", 3, 25.00, 4.1, "momo clue");
+INSERT INTO clothes_store VALUES (27, "skirts", "bottoms", 2, 22.15, 4.2, "serenax");
+INSERT INTO clothes_store VALUES (28, "sneakers", "shoes", 3, 45.65, 4.5, "dobb");
+INSERT INTO clothes_store VALUES (29, "rings", "accessory", 4, 12.50, 3.9, "CJ");
+INSERT INTO clothes_store VALUES (30, "earrings", "accessory", 2, 14.55, 4.1, "CJ");
+INSERT INTO clothes_store VALUES (31, "mini dress", "dresses", 3, 25.00, 4.3, "lulu");
+INSERT INTO clothes_store VALUES (31, "necklaces", "accessory", 3, 31.25, 3.8, "serenax");
+INSERT INTO clothes_store VALUES (32, "t-shirts", "tops", 4, 18.99, 3.2, "serenax");
+INSERT INTO clothes_store VALUES (33, "blouses", "tops", 4, 33.00, 4.1, "momo clue");
+INSERT INTO clothes_store VALUES (34, "jeans", "bottoms", 3, 31.55, 3.8, "CJ");
+INSERT INTO clothes_store VALUES (35, "flip flops", "shoes", 5, 8.00, 4.7, "CJ");
+INSERT INTO clothes_store VALUES (36, "wedges", "shoes", 4, 27.99, 3.2, "CJ");
+INSERT INTO clothes_store VALUES (37, "wedges", "shoes", 3, 25.55, 4, "lulu");
+INSERT INTO clothes_store VALUES (38, "heels", "shoes", 4, 38.99, 4.1, "stod");
+
+CREATE TABLE lilys_products 
+(lilyproducts_id INTEGER PRIMARY KEY, 
+item_type TEXT, 
+item_name VARCHAR, 
+fabric_type VARCHAR,
+unit_price INTEGER,
+quantity INTEGER,
+quantity_sold INTEGER,
+color TEXT);
+
+CREATE TABLE lulu_products
+(lulu_id INTEGER PRIMARY KEY,
+item_type TEXT,
+item_name VARCHAR,
+fabric_type VARCHAR,
+unit_price INTEGER,
+quantity INTEGER,
+quantity_sold INTEGER,
+color TEXT);
+
+CREATE TABLE dobb_products
+(dobb_id INTEGER PRIMARY KEY,
+item_type TEXT,
+item_name VARCHAR,
+fabric_type VARCHAR,
+unit_price INTEGER,
+quantity INTEGER,
+quantity_sold INTEGER,
+color TEXT);
 
 --display the database ordered by price. 
 SELECT * FROM clothes_store
