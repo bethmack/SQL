@@ -19,7 +19,7 @@ item TEXT,
 type TEXT, 
 quantity INTEGER, 
 price INTEGER, 
-rating INTEGER, 
+avg_rating INTEGER, 
 brand TEXT);
 
 INSERT INTO clothes_store VALUES (1, "t-shirts", "tops", 4, 15.99, 5, "lulu");
@@ -65,26 +65,93 @@ INSERT INTO clothes_store VALUES (38, "heels", "shoes", 4, 38.99, 4.1, "stod");
 CREATE TABLE lilys_products 
 (lilyproducts_id INTEGER PRIMARY KEY, 
 item_type TEXT, 
+item_category VARCHAR,
 item_name VARCHAR, 
 fabric_type VARCHAR,
 unit_price INTEGER,
 quantity INTEGER,
 quantity_sold INTEGER,
+rating INTEGER,
 color TEXT);
+
+INSERT INTO lilys_products VALUES (1, "top", "crop top", "mary jane", "cotton", 1.39, 1, 7, 4.5, "purple");
+INSERT INTO lilys_products VALUES (2, "top", "crop top", "sunflower fields", "cotton", 1.39, 3, 5, 4.2, "yellow");
+INSERT INTO lilys_products VALUES (3, "top", "crop top", "rainbow cats", "cotton", 1.19, 18, 9, 3.7, "pink");
+INSERT INTO lilys_products VALUES (4, "top", "crop top", "flying into the sun", "multi", 1.25, 8, 5, 4.2, "pink");
+INSERT INTO lilys_products VALUES (5, "top", "crop top", "babe", "cotton", 1.15, 2, 16, 4.1, "red");
+INSERT INTO lilys_products VALUES (6, "top", "crop top", "plain white", "cotton", 1.10, 3, 23, 4.8, "white");
+INSERT INTO lilys_products VALUES (7, "bottom", "skirt", "plaid red and green", "polyester", 1.60, 10, 3, 3.1, "red");
+INSERT INTO lilys_products VALUES (8, "bottom", "skirt", "yellow flowers", "cotton", 1.23, 5, 7, 3.9, "yellow");
+INSERT INTO lilys_products VALUES (9, "bottom", "skirt", "plain black", "multi", 1.24, 1, 9, 4.2, "black");
+INSERT INTO lilys_products VALUES (10, "bottom", "skirt", "plain red", "multi", 1.24, 4, 17, 4, "red");
+INSERT INTO lilys_products VALUES (11, "bottom", "skirt", "plain dark pink", "multi", 1.24, 9, 21, 4, "pink");
+INSERT INTO lilys_products VALUES (12, "bottom", "skirt", "plain green", "multi", 1.24, 6, 5, 4.1, "green");
+INSERT INTO lilys_products VALUES (13, "bottom", "skirt", "garden party", "multi", 1.39, 18, 54, 4.3, "multi");
+INSERT INTO lilys_products VALUES (14, "bottom", "skirt", "comic print", "multi", 1.39, 13, 24, 4.1, "multi");
+INSERT INTO lilys_products VALUES (15, "bottom", "skirt", "zig zag", "cotton", 1.14, 8, 1, 3.1, "gray");
+INSERT INTO lilys_products VALUES (16, "bottom", "skirt", "fish tank", "cotton", 1.25, 7, 8, 3.9, "blue");
+INSERT INTO lilys_products VALUES (17, "bottom", "skirt", "merry go round", "polyester", 1.36, 8, 5, 4.1, "yellow");
+INSERT INTO lilys_products VALUES (18, "bottom", "skirt", "festive", "polyester", 1.26, 5, 8, 4.6, "red");
+INSERT INTO lilys_products VALUES (19, "top", "blouse", "carmen", "silk", 2.30, 8, 1, 3.3, "pink");
+INSERT INTO lilys_products VALUES (20, "top", "blouse", "kayla", "silk", 2.30, 6, 2, 3.4, "yellow");
+INSERT INTO lilys_products VALUES (21, "top", "blouse", "carmen", "silk", 2.30, 3, 8, 3.7, "black");
+INSERT INTO lilys_products VALUES (22, "bottom", "shorts", "denim regular", "denim", 2.13, 6, 2, 4.1, "blue");
+INSERT INTO lilys_products VALUES (23, "bottom", "shorts", "denim ripped", "denim", 2.13, 10, 15, 4.2, "blue");
+INSERT INTO lilys_products VALUES (24, "bottom", "shorts", "denim flower", "denim", 2.13, 14, 2, 3.8, "pink");
+INSERT INTO lilys_products VALUES (25, "bottom", "shorts", "plaited perfect", "multi", 1.45, 1, 7, 3.7, "tan");
+INSERT INTO lilys_products VALUES (26, "bottom", "shorts", "carrie denim", "denim", 1.87, 10, 8, 4.1, "yellow");
+INSERT INTO lilys_products VALUES (27, "bottom", "slacks", "black pant", "multi", 2.50, 5, 9, 4.1, "black");
+INSERT INTO lilys_products VALUES (28, "bottom", "slacks", "tan pant", "multi", 2.50, 11, 3, 4.2, "tan");
+INSERT INTO lilys_products VALUES (29, "bottom", "jeans", "lacy skinny", "denim", 2.80, 5, 18, 3.7, "blue");
+INSERT INTO lilys_products VALUES (30, "bottom", "jeans", "carly straight leg", "denim", 2.78, 3, 12, 3.6, "blue");
+INSERT INTO lilys_products VALUES (31, "bottom", "jeans", "standard", "denim", 2.80, 9, 7, 3.5, "blue")';
 
 CREATE TABLE lulu_products
 (lulu_id INTEGER PRIMARY KEY,
 item_type TEXT,
+item_category VARCHAR,
 item_name VARCHAR,
 fabric_type VARCHAR,
 unit_price INTEGER,
 quantity INTEGER,
 quantity_sold INTEGER,
+rating INTEGER,
 color TEXT);
+
+INSERT INTO lulu_products VALUES (1, "top", "t-shirt", "crying graphic tee", 1.32, 1, 18, 4.5, "multi");
+INSERT INTO lulu_products VALUES (2, "top", "t-shirt", "flower power", 1.25, 9, 14, 4.1, "multi");
+INSERT INTO lulu_products VALUES (3, "top", "t-shirt", "plain red", 1.12, 6, 9, 4.2, "red");
+INSERT INTO lulu_products VALUES (4, "top", "t-shirt", "plain green", 1.12, 1, 13, 3.8, "green");
+INSERT INTO lulu_products VALUES (5, "accessory", "earrings", "silver stud", 1.12, 5, 26, 3.9, "silver");
+INSERT INTO lulu_products VALUES (6, "accessory", "earrings", "gold stud", 1.12, 19, 45, 4.2, "gold");
+INSERT INTO lulu_products VALUES (7, "accessory", "earrings", "red flower", 1.18, 5, 19, 4.1, "red");
+INSERT INTO lulu_products VALUES (8, "accessory", "earrings", "pink flower", 1.18, 5, 16, "pink");
+INSERT INTO lulu_products VALUES (9, "accessory", "earrings", "yellow flower", 1.18, 7, 24, 4.1, "yellow");
+INSERT INTO lulu_products VALUES (10, "accessory", "earrings", "dangle leaf", 1.27, 2, 27, 3.9, "gold");
+INSERT INTO lulu_products VALUES (11, "accessory", "earrings", "gold hoops", 1.54, 16, 10, 4.1, "gold");
+INSERT INTO lulu_products VALUES (12, "accessory", "earrings", "silver hoops", 1.23, 8, 22, 3.9, "silver");
+INSERT INTO lulu_products VALUES (13, "accessory", "earrings", "cat tiny", 1.18, 14, 6, 3.2, "black");
+INSERT INTO lulu_products VALUES (14, "accessory", "earrings", "mushroom", 1.18, 18, 7, 3.7, "red");
+INSERT INTO lulu_products VALUES (15, "accessory", "earrings", "bird", 1.09, 3, 21, 4.3, "yellow");
+INSERT INTO lulu_products VALUES (16, "accessory", "earrings", "owl", 1.14, 4, 8, 4.2, "brown");
+INSERT INTO lulu_products VALUES (17, "accessory", "earrings", "red rose", 1.24, 6, 12, 4.9, "red");
+INSERT INTO lulu_products VALUES (18, "accessory", "earrings", "pink rose", 1.24, 2, 16, 4.5, "pink");
+INSERT INTO lulu_products VALUES (19, "accessory", "earrings", "lily white" 1.22, 6, 10, 3.9, "white");
+INSERT INTO lulu_products VALUES (20, "accessory", "earrings", "pug studs", 1.22, 7, 1, 4.1, "brown");
+INSERT INTO lulu_products VALUES (21, "accessory", "earrings", "leafy hoops", 1.34, 16, 31, 4.6, "multi");
+INSERT INTO lulu_products VALUES (22, "accessory", "earrings", "loose dangle", 1.35, 10, 22, 4.1, "gold");
+INSERT INTO lulu_products VALUES (23, "accessory", "bracelet", "golden chain", 1.45, 9, 22, 4.3, "gold");
+INSERT INTO lulu_products VALUES (24, "accessory", "bracelet", "silver drop", 1.35, 8, 3, 4.3 "silver");
+INSERT INTO lulu_products VALUES (25, "accessory", "bracelet", "beaded multi", 1.12, 12, 11, 3.5, "multi");
+INSERT INTO lulu_products VALUES (26, "dress", "maxi dress", "flowly black patterned", 2.89, 5, 19, 4.1, "black");
+INSERT INTO lulu_products VALUES (27, "dress", "maxi dress", "red long", 2.67, 3, 19, 4, "red");
+INSERT INTO lulu_products VALUES (28, "dress", "maxi dress", "red stripes", 2.50, 6, 3, 4.6, "red");
+
 
 CREATE TABLE dobb_products
 (dobb_id INTEGER PRIMARY KEY,
 item_type TEXT,
+item_category VARCHAR,
 item_name VARCHAR,
 fabric_type VARCHAR,
 unit_price INTEGER,
